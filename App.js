@@ -1,39 +1,97 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+import { Text, SafeAreaView, ScrollView, Image, StyleSheet, View } from 'react-native';
 
 export default function App() {
+
   return (
-    // <ScrollView>
     <SafeAreaView style={styles.container}>
-      <View style={[styles.box, styles.box1]} />
-      <View style={[styles.box, styles.box2]} />
-      <View style={[styles.box, styles.box3]} />
-      <StatusBar style="auto" />
+      <ScrollView>
+        <View style={styles.profileHeader}>
+          <Image source={{ uri: 'https://github.com/octocat.png' }} style={styles.profileImage} />
+          <View>
+            <Text style={styles.usernameText}>The Octocat</Text>
+            <Text style={styles.usernameText}>octocat</Text>
+            <Text style={styles.usernameText}>joined 25 Jan 2011 </Text>
+          </View>
+        </View>
+        <Text style={styles.bioText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
+        <View style={styles.statsContainer}>
+          <View style={styles.statItem}>
+            <Text style={styles.statLabel}>Repos</Text>
+            <Text style={styles.statValue}>8</Text>
+          </View>
+          <View style={styles.statItem}>
+            <Text style={styles.statLabel}>Followers</Text>
+            <Text style={styles.statValue}>5454054</Text>
+          </View>
+          <View style={styles.statItem}>
+            <Text style={styles.statLabel}>Following</Text>
+            <Text style={styles.statValue}>9</Text>
+          </View>
+        </View>
+        <Text style={styles.locationText}>Location: San Fransisco</Text>
+        <Text style={styles.linkText}>Blog: b;ph</Text>
+      </ScrollView>
     </SafeAreaView>
-    // {/* </ScrollView> */}
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'lightblue',
-    padding: 40
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: 30,
   },
-  box: {
-
+  profileHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 20,
   },
-  box1: {
-    flex: 1,
-    backgroundColor: 'blue'
+  profileImage: {
+    width: 80,
+    height: 80,
+    borderRadius: 50,
+    marginRight: 10,
   },
-  box2: {
-    flex: 1,
-    backgroundColor: 'green'
+  usernameText: {
+    fontSize: 18,
+    fontWeight: 'bold',
   },
-  box3: {
-    flex: 1,
-    backgroundColor: 'red'
+  bioText: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 10,
+  },
+  statsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0,0.2)',
+    padding: 20
+  },
+  statItem: {
+    alignItems: 'center',
+  },
+  statValue: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  statLabel: {
+    fontSize: 12,
+    color: '#999',
+  },
+  locationText: {
+    marginTop: 15,
+    fontSize: 14,
+    color: '#666',
+  },
+  linkText: {
+    marginTop: 10,
+    fontSize: 14,
+    color: '#333',
   },
 });
